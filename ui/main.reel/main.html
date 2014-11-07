@@ -28,7 +28,7 @@
             "properties": {
                 "element": {"#": "button"},
                 "enabled": true,
-                "label": "NEW BABA"
+                "label": "New Task"
             },
             "listeners": [
                 {
@@ -36,12 +36,6 @@
                     "listener": {"@": "actionEventListener"}
                 }
             ]
-        },
-        "checkbox": {
-            "prototype": "digit/ui/checkbox.reel",
-            "properties": {
-                "checked": true
-            }
         },
         "list": {
             "prototype": "digit/ui/list.reel",
@@ -54,6 +48,15 @@
             "prototype": "montage/core/range-controller",
             "properties": {
                 "content": []
+            }
+        },
+        "task": {
+            "prototype": "ui/task.reel",
+            "properties": {
+                "element": {"#": "task"}
+            },
+            "bindings": {
+                "task": {"<-": "@list:iteration.object"}
             }
         },
         "title": {
@@ -71,7 +74,7 @@
         <h1 data-montage-id="title"></h1>
         <button data-montage-id="button"></button>
         <ul data-montage-id="list">
-            <li></li>
+            <div data-montage-id="task"></div>
         </ul>
     </div>
 </body>
